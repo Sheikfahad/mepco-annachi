@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mepco Annachi — Campus essentials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="announcement">Free delivery inside campus · Orders before 8 PM arrive today <span>✦</span></div>
+  <header>
+    <a class="brand" href="#home"><span>mepco</span><b>annachi</b><i>+</i></a>
+    <nav><a href="#shop">Shop</a><a href="#services">Print & cases</a><a href="#about">Why us</a></nav>
+    <div class="header-actions"><button class="icon-btn" id="adminBtn" title="Admin login">⌘</button><button class="cart-button" id="cartBtn">Bag <em id="cartCount">0</em></button></div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-copy"><p class="eyebrow">YOUR CAMPUS CORNER STORE</p><h1>Everything you need,<br><i>right when you need it.</i></h1><p class="lede">Groceries, late-night snacks, printouts, and phone cases — thoughtfully picked for the pace of hostel life.</p><div class="hero-actions"><a class="primary" href="#shop">Shop essentials <span>→</span></a><a class="text-link" href="#services">Need a printout? ↗</a></div><div class="trust"><div><strong>15 min</strong><span>campus delivery</span></div><div><strong>4.9/5</strong><span>student rated</span></div><div><strong>Open late</strong><span>till 10:30 PM</span></div></div></div>
+      <div class="hero-art"><div class="sun"></div><img src="https://images.unsplash.com/photo-1585849833594-447b2d6d6f99?auto=format&fit=crop&w=900&q=85" alt="A well stocked student grocery bag"><div class="floating-note">Fresh drop<br><b>for your hostel</b></div><div class="hero-badge">✦<br><small>STUDENT<br>FAVOURITE</small></div></div>
+    </section>
+
+    <section class="quick" id="services"><a href="#shop"><span class="quick-icon">🥣</span><b>Grocery refill</b><small>Mess & hostel staples</small></a><a href="#print"><span class="quick-icon">🖨️</span><b>Printout hub</b><small>Notes, records & more</small></a><a href="#cases"><span class="quick-icon">📱</span><b>Phone cases</b><small>Style meets protection</small></a></section>
+
+    <section class="catalogue" id="shop"><div class="section-head"><div><p class="eyebrow">THE EVERYDAY EDIT</p><h2>Stock up. Stress less.</h2></div><div class="filters" id="filters"><button class="active" data-category="All">All</button><button data-category="Groceries">Groceries</button><button data-category="Snacks">Snacks</button><button data-category="Print">Printouts</button><button data-category="Cases">Cases</button></div></div><div class="products" id="products"></div></section>
+
+    <section class="print-banner" id="print"><div><p class="eyebrow">PRINT · PICK UP · GO</p><h2>Deadline tomorrow?<br>We've got the pages.</h2><p>Upload-ready print ordering for assignments, lab records, notes and project reports.</p><button class="light-btn" onclick="document.querySelector('[data-id=print-bw]').click()">Order printouts →</button></div><div class="paper-stack"><span>MEPCO<br>SEMESTER<br>NOTES</span><span>PROJECT<br>REPORT<br>2026</span><span>LAB<br>RECORD<br>READY</span></div></section>
+
+    <section class="about" id="about"><p class="eyebrow">MADE FOR CAMPUS LIFE</p><h2>The small things make<br>the biggest difference.</h2><div class="about-grid"><p>Whether it’s a midnight Maggi craving or a last-minute record print, Mepco Annachi makes daily student life a little easier.</p><div><b>Fair prices</b><span>No surprise mark-ups, ever.</span></div><div><b>Always nearby</b><span>Made for hostel & campus living.</span></div></div></section>
+  </main>
+  <footer><a class="brand"><span>mepco</span><b>annachi</b><i>+</i></a><p>Small comforts. Big campus energy.</p><small>© 2026 Mepco Annachi</small></footer>
+
+  <aside class="drawer" id="cartDrawer"><div class="drawer-head"><h2>Your bag <small id="bagSummary"></small></h2><button class="close" data-close="cartDrawer">×</button></div><div id="cartItems" class="cart-items"></div><div class="drawer-bottom"><div class="total"><span>Total</span><b id="cartTotal">₹0</b></div><button class="checkout" id="checkoutBtn">Secure checkout <span>→</span></button><small>Pay on delivery · Campus delivery included</small></div></aside>
+  <div class="overlay" id="overlay"></div>
+
+  <dialog id="checkoutModal"><button class="modal-close" data-dialog-close>×</button><div class="modal-title"><p class="eyebrow">ALMOST THERE</p><h2>Where should we send it?</h2><p>Your order will be saved securely and sent to the store.</p></div><form id="orderForm"><div class="field-row"><label>Full name<input required name="name" placeholder="Your name"></label><label>Phone number<input required name="phone" type="tel" placeholder="10 digit number"></label></div><label>Hostel / delivery address<textarea required name="address" placeholder="e.g. New Hostel, Room 214"></textarea></label><label>Note for the store <input name="note" placeholder="Optional — paper size, phone model, etc."></label><button class="checkout" type="submit">Place order · <span id="formTotal">₹0</span></button></form></dialog>
+  <dialog id="successModal"><div class="success"><div>✓</div><p class="eyebrow">ORDER CONFIRMED</p><h2>You’re all set!</h2><p id="successText">We’ll have your order ready soon.</p><button class="primary" data-dialog-close>Continue shopping →</button></div></dialog>
+  <dialog id="adminModal"><button class="modal-close" data-dialog-close>×</button><div id="loginView" class="admin-login"><p class="eyebrow">STORE ACCESS</p><h2>Admin sign in</h2><p>Manage inventory and download customer orders.</p><form id="loginForm"><label>Password<input type="password" name="password" placeholder="Enter password" required></label><button class="checkout">Open dashboard →</button><small>Demo password: <b>annachi2026</b></small></form></div><div id="dashboard" hidden><div class="dash-head"><div><p class="eyebrow">ADMIN DASHBOARD</p><h2>Good evening, Annachi.</h2></div><button id="downloadBtn" class="outline-btn">↓ Export Excel CSV</button></div><div class="stats" id="stats"></div><h3>Inventory</h3><div id="inventory" class="inventory"></div><h3>Recent orders</h3><div class="orders-wrap"><table><thead><tr><th>Order</th><th>Customer & address</th><th>Purchase</th><th>Amount</th><th>Time</th></tr></thead><tbody id="orders"></tbody></table></div></div></dialog>
+  <script src="app.js"></script>
+</body>
+</html>
